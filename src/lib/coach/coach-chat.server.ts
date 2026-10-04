@@ -1,4 +1,4 @@
-import { createOpenAI } from "@ai-sdk/openai";
+import { createGoogleGenAI } from "@ai-sdk/google";
 import { createClient } from "@supabase/supabase-js";
 import { convertToModelMessages, streamText, type UIMessage } from "ai";
 import { z } from "zod";
@@ -6,7 +6,7 @@ import type { Database, Json } from "@/integrations/supabase/types";
 import { createLovableAiGatewayRunIdFetch, getLovableAiGatewayRunId, withLovableAiGatewayRunIdHeader } from "./run-id.server";
 import { buildAthleteContext } from "./coach-context.server";
 
-const MODEL = "openai/gpt-6-astra";
+const MODEL = "gemini-1.5-pro";
 
 const SYSTEM = `Tu es « Eclipse Coach », l'assistant personnel intégré à l'application Eclipse Flow. Tu combines l'expertise d'un préparateur physique diplômé, d'un nutritionniste du sport, d'un coach en productivité et d'un mentor de développement personnel — et tu restes capable de répondre à n'importe quelle question générale avec la précision d'un assistant IA avancé.
 
